@@ -5,17 +5,18 @@ import App from '../../src/components/app';
 //descriptive string. does not need to match anything
 describe('App', () => {
 
-	// use 'it' to test a single attribute of a target
-	// explanation of test
-	it('shows the correct text', () =>{
+	let component ;
 
-		// create an instance of app
-		const component = renderComponent(App);
+	beforeEach(() => {
+		component = renderComponent(App);
+	});
 
-		// use expect to make an assertion about a target
-		expect(component).to.contain('React simple starter');
-	}); 
-
+	it('shows a comment box', () => {
+		expect(component.find('.comment-box')).to.exist;
+	});
 	
+	it('shows a comment list', () => {
+		expect(component.find('.comment-list')).to.exist;
+	});
 }); 
 
